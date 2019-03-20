@@ -183,6 +183,15 @@ Press Command/Ctrl+R in Caprine to see your changes.
 			}
 		},
 		{
+			label: 'Use Old Facebook Messenger Sound',
+			id: 'use-old-messenger-sound',
+			type: 'checkbox',
+			checked: config.get('useOldMessengerSound'),
+			click() {
+				sendAction('toggle-use-old-messenger-sound');
+			}
+		},
+		{
 			label: 'Show Unread Badge',
 			type: 'checkbox',
 			checked: config.get('showUnreadBadge'),

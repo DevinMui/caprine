@@ -32,6 +32,9 @@ import {process as processEmojiUrl} from './emoji';
 import ensureOnline from './ensure-online';
 import './touch-bar'; // eslint-disable-line import/no-unassigned-import
 
+var opts = {};
+var player = require('play-sound')(opts);
+
 ipcMain.setMaxListeners(100);
 
 electronDebug({
@@ -101,7 +104,7 @@ function updateBadge(conversations: Conversation[]): void {
 
 		if (is.macos && config.get('bounceDockOnMessage') && prevMessageCount !== messageCount) {
 			app.dock.bounce('informational');
-			prevMessageCount = messageCount;
+			prevMessageCount = 0;
 		}
 	}
 
@@ -472,6 +475,10 @@ ipcMain.on(
 			icon: nativeImage.createFromDataURL(icon),
 			silent
 		});
+
+		if(config.get('useOldMessengerSound')){
+			player.play('./media/message-sound.mp3');
+		}
 
 		notifications.set(id, notification);
 

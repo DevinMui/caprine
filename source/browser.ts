@@ -598,6 +598,7 @@ document.addEventListener('keydown', async event => {
 // Pass events sent via `window.postMessage` on to the main process
 window.addEventListener('message', async ({data: {type, data}}) => {
 	if (type === 'notification') {
+
 		showNotification(data);
 	}
 

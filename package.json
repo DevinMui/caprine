@@ -37,7 +37,8 @@
 		"facebook-locales": "^1.0.594",
 		"is-online": "^8.1.0",
 		"lodash": "^4.17.11",
-		"p-wait-for": "^2.0.1"
+		"p-wait-for": "^2.0.1",
+		"play-sound": "^1.1.3"
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^0.2.1",
