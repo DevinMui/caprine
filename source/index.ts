@@ -32,8 +32,7 @@ import {process as processEmojiUrl} from './emoji';
 import ensureOnline from './ensure-online';
 import './touch-bar'; // eslint-disable-line import/no-unassigned-import
 
-var opts = {};
-var player = require('play-sound')(opts);
+let player = require('play-sound')();
 
 ipcMain.setMaxListeners(100);
 
@@ -477,7 +476,7 @@ ipcMain.on(
 		});
 
 		if(config.get('useOldMessengerSound')){
-			player.play('./media/message-sound.mp3');
+			player.play(process.resourcesPath + '/static/message-sound.mp3');
 		}
 
 		notifications.set(id, notification);
